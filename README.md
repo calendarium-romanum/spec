@@ -25,6 +25,20 @@ to it's standard output.
 SPECLI=/path/to/your/executable bundle exec rspec
 ```
 
+## Arguments passed
+
+TODO
+
+## Output expected
+
+TODO
+
+## Motivation
+
+There is a C library in preparation.
+The test suite's primary task is to ensure that the C library
+works exactly as [calendarium-romanum][caro].
+
 ## License
 
 dual-licensed: freely choose between GNU/GPL 3 and MIT
