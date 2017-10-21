@@ -92,10 +92,27 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-require 'aruba/rspec'
+RSpec::Matchers.define :match_for do |date|
+  match do |impl_comparison|
+    @date = date
+    result = impl_comparison.(@date)
+
+    @expected = result.expected
+    @actual = result.actual
+
+    @actual == @expected
+  end
+
+  attr_reader :actual, :expected
+  diffable
+
+  def failure_message
+    "Expected calendar entry for #{@date} to contain #{expected}"
+  end
+end
 
 require 'calendarium-romanum'
-require_relative '../lib/calendarium-romanum/spec/serializer.rb'
+require_relative '../lib/calendarium-romanum/spec'
 require 'json'
 CR = CalendariumRomanum
 

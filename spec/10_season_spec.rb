@@ -1,6 +1,6 @@
-RSpec.describe 'Season', type: :aruba do
-  let(:authority) do
-    CR::Spec::Serializer.new(CR::Calendar.new(TEST_YEAR))
+RSpec.describe 'Season' do
+  let(:comparison) do
+    CR::Spec::Comparison.new SPECLI, slice: [:season]
   end
 
   describe 'limits' do
@@ -13,16 +13,8 @@ RSpec.describe 'Season', type: :aruba do
           'itself' => date,
           'day after' => date + 1
         }.each_pair do |example_name, d|
-          describe "#{example_name} - #{d}" do
-            before :each do
-              run "#{SPECLI} #{d}"
-            end
-
-            it do
-              expect(last_command).to be_successfully_executed
-              f = ->(h) { h.slice('season') }
-              expect(f.(JSON.load(all_output))).to eq f.(authority.(d))
-            end
+          describe "#{example_name} (#{d})" do
+            it { expect(comparison).to match_for d }
           end
         end
       end
