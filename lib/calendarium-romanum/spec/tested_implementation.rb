@@ -1,3 +1,5 @@
+require 'json'
+
 module CalendariumRomanum
   module Spec
     class TestedImplementation
@@ -6,7 +8,8 @@ module CalendariumRomanum
       end
 
       def call(date)
-        {}
+        output = `#{@executable} #{date}`
+        JSON.load output
       end
     end
   end
