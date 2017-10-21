@@ -31,7 +31,26 @@ TODO
 
 ## Output expected
 
-TODO
+Output of the test executable must be a valid JSON
+of exactly this structure
+(which is, btw., subset of the "day" resource of the
+Church Calendar API v0).
+Only content matters, whitespace and order of properties are ignored.
+
+```json
+{
+  "date": "2018-05-20",
+  "season": "easter",
+  "season_week": 8,
+  "celebrations": [
+    {
+      "title": "Pentecost Sunday",
+      "colour": "red",
+      "rank_num": 1.2
+    }
+  ]
+}
+```
 
 ## Motivation
 
