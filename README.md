@@ -21,6 +21,10 @@ which receives date and calendar setup through command line
 arguments and prints JSON-encoded calendar data
 to it's standard output.
 
+Run the test suite by invoking `rspec`
+with path to your test executable provided
+in environment variable `SPECLI`.
+
 ```
 SPECLI=/path/to/your/executable bundle exec rspec
 ```
