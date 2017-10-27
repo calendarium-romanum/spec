@@ -58,12 +58,12 @@ Only content matters, whitespace and order of properties are ignored.
 
 ## Motivation
 
-There is a C library in preparation.
 The test suite's primary task is to ensure that the C library
-works exactly as [calendarium-romanum][caro].
+[libcalrom][libcalrom] works exactly as [calendarium-romanum][caro].
 
 ## License
 
 dual-licensed: freely choose between GNU/GPL 3 and MIT
 
 [caro]: https://github.com/igneus/calendarium-romanum
+[libcalrom]: https://github.com/calendarium-romanum/libcalrom
